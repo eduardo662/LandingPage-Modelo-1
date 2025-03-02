@@ -93,4 +93,23 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById("seconds").innerHTML = "00";
         }
     }, 1000);
+    
+    // Funcionalidade para o FAQ (abrir/fechar perguntas)
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            
+            // Fecha todas as outras perguntas
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Abre/fecha a pergunta atual
+            faqItem.classList.toggle('active');
+        });
+    });
 }); 
